@@ -1,8 +1,15 @@
+import { Configuration, OpenAIApi } from "openai";
 import { useState } from "react";
 import "./App.css";
 
 function App() {
   const [query, setQuery] = useState('');
+
+  const configuration = new Configuration({
+    apiKey: import.meta.env.VITE_APP_OPENAI_KEY,
+  });
+
+  const openai = new OpenAIApi(configuration);
 
   return (
     <div className="main">
