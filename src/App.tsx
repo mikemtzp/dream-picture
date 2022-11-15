@@ -1,6 +1,6 @@
-import { useState } from "react";
-import { Configuration, OpenAIApi } from "openai";
-import "./App.css";
+import { useState } from 'react';
+import { Configuration, OpenAIApi } from 'openai';
+import './App.css';
 
 function App() {
   const [query, setQuery] = useState('');
@@ -22,19 +22,25 @@ function App() {
   };
 
   return (
-    <div className="main">
-        <h1>Generate an Image using Open AI API</h1>
+    <div className='main'>
+      <h1>Generate an Image using Open AI API</h1>
 
-        <textarea
-          className="input"
-          placeholder="A tall man in a psychedelic endless library, painted by Edvard Munch"
-          onChange={(e) => setQuery(e.target.value)}
-          rows="10"
-          cols="40"
-        />
-        <button onClick={generateImage}>Generate an Image</button>
+      <textarea
+        className='input'
+        placeholder='A tall man in a psychedelic endless library, painted by Edvard Munch'
+        onChange={(e) => setQuery(e.target.value)}
+        rows='10'
+        cols='40'
+      />
+      <button onClick={generateImage}>Generate an Image</button>
+
+      {picture.length > 0 ? (
+        <img className='picture' src={picture} alt={query} />
+      ) : (
+        <></>
+      )}
     </div>
   );
 }
 
-export default App
+export default App;
