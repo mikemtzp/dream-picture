@@ -2,9 +2,9 @@ import { useState } from 'react';
 import { Configuration, OpenAIApi } from 'openai';
 import './App.css';
 
-function App() {
-  const [query, setQuery] = useState('');
-  const [picture, setPicture] = useState('');
+const App: React.FC = () => {
+  const [query, setQuery] = useState<string>('');
+  const [picture, setPicture] = useState<string>('');
 
   const configuration = new Configuration({
     apiKey: import.meta.env.VITE_APP_OPENAI_KEY,
@@ -13,7 +13,7 @@ function App() {
   const openai = new OpenAIApi(configuration);
 
   const generateImage = async () => {
-    const res = await openai.createImage({
+    const res: any = await openai.createImage({
       prompt: query,
       n: 1,
       size: '512x512',
@@ -41,6 +41,6 @@ function App() {
       )}
     </div>
   );
-}
+};
 
 export default App;
