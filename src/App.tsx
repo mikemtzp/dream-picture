@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Configuration, OpenAIApi } from 'openai';
+import ailibrary from './assets/ailibrary.jpeg'
 import './App.css';
 
 const App: React.FC = () => {
@@ -22,23 +23,31 @@ const App: React.FC = () => {
   };
 
   return (
-    <div className='main'>
-      <h1>Generate an Image using Open AI API</h1>
+    <div className='flex flex-col h-auto sm:grid sm:grid-cols-5 sm:gap-8'>
+      <div className='flex flex-col justify-center items-center sm:col-span-3'>
+        <h1>Generate an Image using Open AI API</h1>
 
-      <textarea
-        className='input'
-        placeholder='A tall man in a psychedelic endless library, painted by Edvard Munch'
-        onChange={(e) => setQuery(e.target.value)}
-        rows='10'
-        cols='40'
-      />
-      <button onClick={generateImage}>Generate an Image</button>
+        <input
+          className='w-[75%] p-5 rounded-sm my-5 placeholder:text-center placeholder:italic'
+          placeholder='A tall man in a psychedelic endless library, painted by Edvard Munch'
+          onChange={(e) => setQuery(e.target.value)}
+        />
+        <button onClick={generateImage}>Generate an Image</button>
 
-      {picture.length > 0 ? (
-        <img className='picture' src={picture} alt={query} />
-      ) : (
-        <></>
-      )}
+        {picture.length > 0 ? (
+          <img className='picture' src={picture} alt={query} />
+        ) : (
+          <></>
+        )}
+      </div>
+
+      <div className='flex justify-center items-center sm:col-span-2'>
+        <img
+          src={ailibrary}
+          alt='A tall man in a psychedelic endless library, painted by Edvard Munch'
+          className='rounded-xl mt-5 sm:mt-0 sm:h-auto shadow-xl shadow-slate-700'
+        />
+      </div>
     </div>
   );
 };
