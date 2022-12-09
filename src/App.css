@@ -3,6 +3,8 @@
   margin: 0 auto;
   padding: 2rem;
   text-align: center;
+  height: auto;
+  display: flex;
 }
 
 .logo {
@@ -38,4 +40,9 @@
 
 .read-the-docs {
   color: #888;
+}
+
+.picture {
+  margin-top: 2rem;
+  width: 350px;
 }
